@@ -1,0 +1,4 @@
+# Damas-AI
+Proyecto de juego de damas en Python con implementación de un oponente usando el algoritmo Minimax. Elaborado por Angel Israel Hernández Testa y Alan Alexis Calva Guzmán para la materia de Fundamentos de Inteligencia Artificial.
+## Instalación y Ejecución
+Únicamente hay que descargar el archivo 'DamasAplicacion.zip' contenido en la carpeta 'dist'. Se debe descomprimir el archivo en la ubicación elegida, asegúrese de que la carpeta 'assets' y  el archivo 'Damas.exe' compartan la misma ruta de acceso. A continuación, ejecute el archivo 'Damas.exe', se mostrará el menú del juego en el cual deberá seleccionar una modalidad. Para jugar contra otro jugador deberá hacer click sobre el primer botón, para jugar contra la IA deberá seleccionar el botón de abajo. Para salir de la aplicación deberá cerrar la pestaña de la aplicación.
