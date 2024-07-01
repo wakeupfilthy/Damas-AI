@@ -3,7 +3,7 @@ import pygame
 from damas.constants import WHITE, GRAY
 
 # Algoritmo Minimax
-def minimax(position, depth, max_player, game):
+def minimax(position, depth, max_player, game, alpha=float('-inf'), beta=float('inf')):
     # Caso base
     if depth == 0 or position.gana() != None:
         return position.evaluate(), position # Evaluar la posición
@@ -15,7 +15,10 @@ def minimax(position, depth, max_player, game):
             evaluation = minimax(move, depth-1, False, game)[0] # Evaluar el movimiento
             maxEval = max(maxEval, evaluation) # Obtener el máximo
             if maxEval == evaluation: # Si el máximo es igual a la evaluación, obtener el mejor movimiento
-                best_move = move 
+                best_move = move
+            alpha = max(alpha, maxEval)
+            if beta <= alpha: # Si el valor de beta es menor o igual al de alpha, se corta la rama
+                break
         return maxEval, best_move # Retornar el máximo y el mejor movimiento
     else: # Si se esta minimizando
         minEval = float('inf')
@@ -25,6 +28,9 @@ def minimax(position, depth, max_player, game):
             minEval = min(minEval, evaluation)
             if minEval == evaluation: # Si el mínimo es igual a la evaluación, obtener el mejor movimiento
                 best_move = move
+            beta = min(beta, minEval)
+            if beta <= alpha:
+                break
         return minEval, best_move
 # Simular un movimiento
 def simulate_move(piece, move, board, skip):
